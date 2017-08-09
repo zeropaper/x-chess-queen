@@ -19,21 +19,44 @@ _ _ _ _ _ _ _ _
 ## Resources
 
 - [Google](https://google.com?q=meehhhh+i+don't+understand) ;)
+- [Unicode Chess Symbols](https://unicode-table.com/en/sets/chess-symbols/) and unicode symbol reference in general
 
 ## Steps
 
-### Create a Checkboard
+### 1 - Create a Checkboard
 
-Create a function called `cellClicked` which has 3 arguments (`rowNum`, `columnNum` and `event`).
+- Remove the margin of `body` in CSS
+- Center the `table` and make it has big as possible (but square and... in CSS)
+- Create a `.black` CSS class with a black background color
+- Create a function called `cellClicked` which has 3 arguments (`rowNum`, `columnNum` and `event`).
+- Create a function called `renderChessboard` which takes the `table` element as argument.
 
-Create a function called `renderChessboard` which takes the `table` element as argument.
-
-- The function adds 8 rows (`tr`) of 8 cells (`td`) (columns), you __must__ use DOM for that because...
-- Each cell has a `click` event listener which calls the `cellClicked`
-
+  - The function adds 8 rows (`tr`) of 8 cells (`td`) (columns), you __must__ use DOM for that because...
+  - Each cell has a `click` event listener which calls the `cellClicked`
+  - The function __must__ return the matrix filled with the corresponding (`td`) elements (and you should make a variable of its result ;) ).
 
 __Hint:__ you can inspire your self of the matrix exercise code for that.
-<detail>
-<summary>createMatrix</summary>
-</detail>
 
+
+### 2 - Hightlighing a Row
+
+- Create a CSS rule which applies to the `.highlight td` and `.highlight` selectors and give it a blue `inset` `box-shadow` (the other parameters are up to you).
+- Create a function called `highlightRow` which takes a `rowNum` argument, add a call to the `highlightRow` function you just created in your `cellClicked`
+- Make so that the `highlightRow` adds the `highlight` class to the row element.
+
+
+### 3 - Hightlighing a Column
+
+- Create a function called `highlightColumn` which takes a `columnNum` argument and will add the `highlight` class to the cell element.
+- Add a call to `highlightColumn` to your `cellClicked` function (if it's not already done ;) )
+
+
+### 4 - Hightlighing Diagonals
+
+- Create a function called `highlightDiagonals` which takes a `rowNum` and a `columnNum` argument and will add the `highlight` class to the cell element placed on the diagonals of the rowNum and columnNum.
+- Add a call to `highlightDiagonals` to your `cellClicked` function...
+
+<details>
+<summary>Reflection about diagonals in a matrix</summary>
+
+</details>
