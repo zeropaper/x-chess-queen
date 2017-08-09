@@ -35,7 +35,7 @@ _ _ _ _ _ _ _ _
   - Each cell has a `click` event listener which calls the `cellClicked`
   - The function __must__ return the matrix filled with the corresponding (`td`) elements (and you should make a variable of its result ;) ).
 
-__Hint:__ you can inspire your self of the matrix exercise code for that.
+__Hint:__ you can reuse the logic of the [matrix exercise](https://github.com/zeropaper/x-array-matrix) code for that.
 
 
 ### 2 - Hightlighing a Row
@@ -43,6 +43,8 @@ __Hint:__ you can inspire your self of the matrix exercise code for that.
 - Create a CSS rule which applies to the `.highlight td` and `.highlight` selectors and give it a blue `inset` `box-shadow` (the other parameters are up to you).
 - Create a function called `highlightRow` which takes a `rowNum` argument, add a call to the `highlightRow` function you just created in your `cellClicked`
 - Make so that the `highlightRow` adds the `highlight` class to the row element.
+
+__Hint:__ have a look at the `parentNode` and `classList` properties of a DOM element to add a class to the row.
 
 
 ### 3 - Hightlighing a Column
