@@ -18,9 +18,6 @@ function createMatrix(rowsCount, columnsCount) {
 }
 
 
-function cellClicked(rowNum, columnNum, event) {}
-
-
 function renderChessboard(tableElement) {
   var matrix = createMatrix(8, 8);
   var bwSwitch = false;
@@ -47,5 +44,12 @@ function renderChessboard(tableElement) {
   });
 }
 
+function cellClicked(rowNum, columnNum, event) {
+  highlightRow(rowNum);
+}
+
 var chessboarMatrix = renderChessboard(document.querySelector('table'));
 
+function highlightRow(rowNum) {
+  chessboarMatrix[rowNum].parentNode.classList.add('highlight');
+}

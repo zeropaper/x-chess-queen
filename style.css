@@ -15,3 +15,8 @@ table {
 .black {
   background-color: #000;
 }
+
+td.highlight,
+.highlight td {
+  box-shadow: 0 0 3px 3px blue inset;
+}
