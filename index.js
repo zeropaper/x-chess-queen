@@ -22,11 +22,12 @@ function cellClicked(rowNum, columnNum, event) {}
 
 
 function renderChessboard(tableElement) {
-  var chessboardElement = document.createElement('table');
-
+  var matrix = createMatrix(8, 8);
   var bwSwitch = false;
-  createMatrix(8, 8).forEach(function(rowArray, rowNum) {
+
+  matrix.forEach(function(rowArray, rowNum) {
     var rowElement = document.createElement('tr');
+    bwSwitch = !bwSwitch;
 
     rowArray.forEach(function(column, columnNum) {
       var cellElement = document.createElement('td');
@@ -39,10 +40,12 @@ function renderChessboard(tableElement) {
       });
 
       rowElement.appendChild(cellElement);
+      matrix[rowNum][columnNum] = cellElement;
     });
 
     tableElement.appendChild(rowElement);
   });
 }
 
-document.body.appendChild(document.querySelector('table'));
+var chessboarMatrix = renderChessboard(document.querySelector('table'));
+
