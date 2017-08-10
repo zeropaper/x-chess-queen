@@ -42,6 +42,8 @@ function renderChessboard(tableElement) {
 
     tableElement.appendChild(rowElement);
   });
+
+  return matrix;
 }
 
 function cellClicked(rowNum, columnNum, event) {
@@ -51,5 +53,5 @@ function cellClicked(rowNum, columnNum, event) {
 var chessboarMatrix = renderChessboard(document.querySelector('table'));
 
 function highlightRow(rowNum) {
-  chessboarMatrix[rowNum].parentNode.classList.add('highlight');
+  chessboarMatrix[rowNum][0].parentNode.classList.add('highlight');
 }
