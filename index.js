@@ -50,16 +50,17 @@ function cellClicked(rowNum, columnNum, event) {
   removeHighlight();
   highlightRow(rowNum);
   highlightColumn(columnNum);
+  highlightDiagonals(rowNum, columnNum);
 }
 
-var chessboarMatrix = renderChessboard(document.querySelector('table'));
+var chessboardMatrix = renderChessboard(document.querySelector('table'));
 
 function highlightRow(rowNum) {
-  chessboarMatrix[rowNum][0].parentNode.classList.add('highlight');
+  chessboardMatrix[rowNum][0].parentNode.classList.add('highlight');
 }
 
 function highlightColumn(columnNum) {
-  chessboarMatrix.forEach(function(rowArray) {
+  chessboardMatrix.forEach(function(rowArray) {
     rowArray[columnNum].classList.add('highlight');
   });
 }
@@ -68,4 +69,56 @@ function removeHighlight() {
   document.querySelectorAll('.highlight').forEach(function(element) {
     element.classList.remove('highlight');
   });
+}
+
+function highlightCell(rowNum, columnNum) {
+  chessboardMatrix[rowNum][columnNum].classList.add('highlight');
+}
+
+function highlightDiagonals(rowNum, columnNum) {
+  var x;
+  var y;
+  var c;
+  var mx = chessboardMatrix.length;
+  var my = chessboardMatrix[0].length;
+
+  c = 1;
+  for (y = rowNum + 1; y < my; y++) {
+    for (x = columnNum + 1; x < mx; x++) {
+      if (y === (rowNum + c) && x === (columnNum + c)) {
+        highlightCell(y, x);
+        c++;
+      }
+    }
+  }
+
+  c = 1;
+  for (y = rowNum + 1; y < my; y++) {
+    for (x = columnNum - 1; x >= 0; x--) {
+      if (y === (rowNum + c) && x === (columnNum - c)) {
+        highlightCell(y, x);
+        c++;
+      }
+    }
+  }
+
+  c = 1;
+  for (y = rowNum - 1; y >= 0; y--) {
+    for (x = columnNum + 1; x < mx; x++) {
+      if (y === (rowNum - c) && x === (columnNum + c)) {
+        highlightCell(y, x);
+        c++;
+      }
+    }
+  }
+
+  c = 1;
+  for (y = rowNum - 1; y >= 0; y--) {
+    for (x = columnNum - 1; x >= 0; x--) {
+      if (y === (rowNum - c) && x === (columnNum - c)) {
+        highlightCell(y, x);
+        c++;
+      }
+    }
+  }
 }
