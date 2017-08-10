@@ -61,4 +61,19 @@ __Hint:__ have a look at the `parentNode` and `classList` properties of a DOM el
 <details>
 <summary>Reflection about diagonals in a matrix</summary>
 
+Given the 8x8 matrix
+
+````
+  0 1 2 3 4 5 6 7     0 1 2 3 4 5 6 7     0 1 2 3 4 5 6 7
+0 _ x _ _ _ x _ _   0 x _ _ _ _ _ _ _   0 _ _ _ _ _ x _ _ 
+1 _ _ x _ x _ _ _   1 _ x _ _ _ _ _ _   1 _ _ _ _ x _ _ _ 
+2 _ _ _ C _ _ _ _   2 _ _ x _ _ _ _ _   2 _ _ _ x _ _ _ _ 
+3 _ _ x _ x _ _ _   3 _ _ _ x _ _ _ _   3 x _ x _ _ _ _ _ 
+4 _ x _ _ _ x _ _   4 _ _ _ _ x _ _ _   4 _ C _ _ _ _ _ _ 
+5 x _ _ _ _ _ x _   5 _ _ _ _ _ x _ _   5 x _ x _ _ _ _ _ 
+6 _ _ _ _ _ _ _ x   6 _ _ _ _ _ _ x _   6 _ _ _ x _ _ _ _ 
+7 _ _ _ _ _ _ _ _   7 _ _ _ _ _ _ _ c   7 _ _ _ _ x _ _ _ 
+
+````
+
 </details>
