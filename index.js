@@ -47,6 +47,7 @@ function renderChessboard(tableElement) {
 }
 
 function cellClicked(rowNum, columnNum, event) {
+  removeHighlight();
   highlightRow(rowNum);
   highlightColumn(columnNum);
 }
@@ -60,5 +61,11 @@ function highlightRow(rowNum) {
 function highlightColumn(columnNum) {
   chessboarMatrix.forEach(function(rowArray) {
     rowArray[columnNum].classList.add('highlight');
+  });
+}
+
+function removeHighlight() {
+  document.querySelectorAll('.highlight').forEach(function(element) {
+    element.classList.remove('highlight');
   });
 }
