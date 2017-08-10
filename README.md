@@ -53,7 +53,14 @@ __Hint:__ have a look at the `parentNode` and `classList` properties of a DOM el
 - Add a call to `highlightColumn` to your `cellClicked` function (if it's not already done ;) )
 
 
-### 4 - Hightlighing Diagonals
+### 4 - Remove Highlighting
+
+- Create a function called `removeHighlight` which removes all the `.highlight` classes in the chessboard table.
+- Add a call to `removeHighlight` at the beginning of the `cellClicked` function.
+
+__Hint:__ you could use the `.querySelectorAll()` method of DOM elements.
+
+### 5 - Hightlighing Diagonals
 
 - Create a function called `highlightDiagonals` which takes a `rowNum` and a `columnNum` argument and will add the `highlight` class to the cell element placed on the diagonals of the rowNum and columnNum.
 - Add a call to `highlightDiagonals` to your `cellClicked` function...
