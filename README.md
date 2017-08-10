@@ -33,7 +33,7 @@ _ _ _ _ _ _ _ _
 
   - The function adds 8 rows (`tr`) of 8 cells (`td`) (columns), you __must__ use DOM for that because...
   - Each cell has a `click` event listener which calls the `cellClicked`
-  - The function __must__ return the matrix filled with the corresponding (`td`) elements (and you should make a variable of its result ;) ).
+  - The function __highly__ recommended to return the matrix filled with the corresponding (`td`) elements (and you should make a variable of its result ;) ).
 
 __Hint:__ you can reuse the logic of the [matrix exercise](https://github.com/zeropaper/x-array-matrix) code for that.
 
