@@ -40,7 +40,7 @@ __Hint:__ you can reuse the logic of the [matrix exercise](https://github.com/ze
 
 ### 2 - Hightlighing a Row
 
-- Create a CSS rule which applies to the `.highlight td` and `.highlight` selectors and give it a blue `inset` `box-shadow` (the other parameters are up to you).
+- Create a CSS rule which applies to the `.highlight td` and `td.highlight` selectors and give it a blue `inset` `box-shadow` (the other parameters are up to you).
 - Create a function called `highlightRow` which takes a `rowNum` argument, add a call to the `highlightRow` function you just created in your `cellClicked`
 - Make so that the `highlightRow` adds the `highlight` class to the row element.
 
