@@ -48,10 +48,17 @@ function renderChessboard(tableElement) {
 
 function cellClicked(rowNum, columnNum, event) {
   highlightRow(rowNum);
+  highlightColumn(columnNum);
 }
 
 var chessboarMatrix = renderChessboard(document.querySelector('table'));
 
 function highlightRow(rowNum) {
   chessboarMatrix[rowNum][0].parentNode.classList.add('highlight');
+}
+
+function highlightColumn(columnNum) {
+  chessboarMatrix.forEach(function(rowArray) {
+    rowArray[columnNum].classList.add('highlight');
+  });
 }
