@@ -1,0 +1,4 @@
+docs/image-diffs
+node_modules
+errorShots
+*.log
