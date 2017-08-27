@@ -1,3 +1,4 @@
+/*jshint esversion: 6*/
 function createMatrix(rowsCount, columnsCount) {
   var matrix = [];
 
@@ -18,9 +19,10 @@ function createMatrix(rowsCount, columnsCount) {
 }
 
 
-function renderChessboard(tableElement) {
+function renderChessboard(chessboardElement) {
   var matrix = createMatrix(8, 8);
   var bwSwitch = false;
+  var tableElement = chessboardElement.querySelector('table');
 
   matrix.forEach(function(rowArray, rowNum) {
     var rowElement = document.createElement('tr');
@@ -46,6 +48,7 @@ function renderChessboard(tableElement) {
   return matrix;
 }
 
+
 function cellClicked(rowNum, columnNum, event) {
   removeHighlight();
   highlightRow(rowNum);
@@ -53,7 +56,7 @@ function cellClicked(rowNum, columnNum, event) {
   highlightDiagonals(rowNum, columnNum);
 }
 
-var chessboardMatrix = renderChessboard(document.querySelector('table'));
+var chessboardMatrix = renderChessboard(document.querySelector('.chessboard'));
 
 function highlightRow(rowNum) {
   chessboardMatrix[rowNum][0].parentNode.classList.add('highlight');
