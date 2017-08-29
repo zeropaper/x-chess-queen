@@ -1,4 +1,4 @@
-$chessboard-size: 100vmin;
+$chessboard-size: 75vmin;
 $highlight-size: 50%;
 $highlight-border-size: 0.4vmin;
 $hover-color: #040;
@@ -16,76 +16,83 @@ $figure-transition-function: ease;
 }
 
 body {
+  font-family: sans-serif;
   margin: 0;
 }
 
 .chessboard {
+  border: 0.5vmin solid;
   position: relative;
   margin: auto;
   width: $chessboard-size;
   height: $chessboard-size;
-
-  // .figures,
-  table {
-    border: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+  transform-origin: 50% 75%;
+  transform: perspective(0) rotateX(0) translatey(0);
+  transition: transform 0.5s;
+  &--tilted {
+    transform: perspective($chessboard-size * 0.75) rotateX(30deg) translatey(-50%);
   }
 
-  // .figures {
+  // &__figures {
   //   pointer-events: none;
   //   z-index: 2;
   // }
 
-  table {
-    border-collapse: collapse;
-  }
-
-  tr {
+  &__table {
     border: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
   }
 
-  td {
+  &__row {
+    width: 100%;
+    height: 12.5%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__cell {
+    width: 12.5%;
+    height: 100%;
     border: 0;
     position: relative;
     &:hover {
       background-color: $hover-bg-color;
       color: $hover-color;
     }
-  }
 
-  .black {
-    background-color: #000;
-    color: #fff;
-    &:hover {
-      background-color: $hover-color;
-      color: $hover-bg-color;
+    &--black {
+      background-color: #000;
+      color: #fff;
+      &:hover {
+        background-color: $hover-color;
+        color: $hover-bg-color;
+      }
+    }
+
+    &--highlight {
+      &:after {
+        content: '';
+        display: block;
+        top: $highlight-size / 2;
+        left: $highlight-size / 2;
+        width: $highlight-size;
+        height: $highlight-size;
+        position: absolute;
+        border-radius: 100%;
+        border: $highlight-border-size solid currentColor;
+      }
     }
   }
 
-  td.highlight,
-  .highlight td {
-    &:after {
-      content: '';
-      display: block;
-      top: $highlight-size / 2;
-      left: $highlight-size / 2;
-      width: $highlight-size;
-      height: $highlight-size;
-      position: absolute;
-      border-radius: 100%;
-      border: $highlight-border-size solid currentColor;
-    }
-  }
-}
-
-// /* figures */
-// .figure {
+// &_figure {
 //   position: absolute;
 //   display: block;
-//   width: $chessboard-size / 8;
-//   height: $chessboard-size / 8;
+//   width: 100% / 8;
+//   height: 100% / 8;
 //   border: none;
 
 //   transition: top $figure-transition-speed $figure-transition-function,
@@ -98,8 +105,8 @@ body {
 //     width: 100%;
 //     height: 100%;
 //     margin: 0;
-//     font-size: $chessboard-size / 16;
-//     line-height: $chessboard-size / 8;
+// //     font-size: $chessboard-size / 16;
+// //     line-height: $chessboard-size / 8;
 //     z-index: 2;
 //   }
 
@@ -169,10 +176,11 @@ body {
 //     @for $r from 0 through 7 {
 //       @for $c from 0 through 7 {
 //         &--#{$r}-#{$c} {
-//           top: $r * $chessboard-size / 8;
-//           left: $c * $chessboard-size / 8;
+//           top: $r * 100% / 8;
+//           left: $c * 100% / 8;
 //         }
 //       }
 //     }
 //   }
 // }
+}
