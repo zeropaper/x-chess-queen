@@ -23,7 +23,7 @@ describe('Chessboard', function() {
     browser.url('http://localhost:9090');
   });
 
-  it('has 64 td elements', function() {
+  it('has 64 .chessboard__cell elements', function() {
     elements = browser.elements('.chessboard__cell').value;
     assert(elements.length, 64);
   });
@@ -49,7 +49,7 @@ describe('Chessboard', function() {
   });
 
 
-  describe.skip('tilted design', function() {
+  describe('tilted design', function() {
     it('can be toggled', function() {
       browser.click('[name=tilt]');
       browser.pause(1000);
