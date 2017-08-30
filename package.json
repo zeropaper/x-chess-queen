@@ -41,6 +41,6 @@
     "wdio-spec-reporter": "^0.1.2",
     "wdio-static-server-service": "^1.0.1",
     "webdrivercss": "^1.1.10",
-    "xt-sc-chess-queen": "github:zeropaper/xt-sc-chess-queen#cb5e33e"
+    "xt-sc-chess-queen": "github:zeropaper/xt-sc-chess-queen"
   }
 }
