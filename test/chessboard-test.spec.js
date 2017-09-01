@@ -17,6 +17,7 @@ function matrixFillArray(matrix, array) {
 
 describe('Chessboard', function() {
   var elements;
+  const headless = ((browser.desiredCapabilities.chromeOptions || {}).args || []).indexOf('--headless') > -1;
   var matrix = createMatrix(8, 8);
 
   before(function() {
@@ -29,6 +30,12 @@ describe('Chessboard', function() {
   });
 
   it('highlights the possible moves when a td is clicked', function() {
+    //
+    // Look at the documentation of WebdriverIO (in the API section of the site)
+    // and write some code to make a click on the cell at the 4th row, 5th column of the chessboard
+    //
+    // look at `browser.elements()` and `browser.elementÌdClick()`
+    //
     elements = browser.elements('.chessboard__cell').value;
     matrixFillArray(matrix, elements);
     var clickedElementId = matrix[3][4].ELEMENT;
@@ -42,7 +49,7 @@ describe('Chessboard', function() {
 
   describe('normal design', function() {
     Object.keys(checkStyle.resolutions).forEach(key => {
-      it('has the right styles for ' + key.split('-').join(' '), function () {
+      (headless ? it : xit)('has the right styles for ' + key.split('-').join(' '), function () {
         checkStyle(browser, key, 'highlight', './docs/image-diffs', 5);
       });
     });
@@ -58,7 +65,7 @@ describe('Chessboard', function() {
     });
 
     Object.keys(checkStyle.resolutions).forEach(key => {
-      it('has the right styles for ' + key.split('-').join(' '), function () {
+      (headless ? it : xit)('has the right styles for ' + key.split('-').join(' '), function () {
         checkStyle(browser, key, 'tilted', './docs/image-diffs', 5, 600);
       });
     });
